@@ -2,14 +2,14 @@ package modelo;
 
 import vista.VistaModeloTransporte;
 
-public class ModeloModeloTransporte {
+public class ModeloMetodoModeloTransporte {
 
     VistaModeloTransporte vistaMT;
 
-    public ModeloModeloTransporte() {
+    public ModeloMetodoModeloTransporte() {
     }
 
-    public ModeloModeloTransporte(VistaModeloTransporte vistaMT) {
+    public ModeloMetodoModeloTransporte(VistaModeloTransporte vistaMT) {
         this.vistaMT = vistaMT;
     }
 

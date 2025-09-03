@@ -4,7 +4,10 @@
  */
 package vista;
 
+import controlador.ControladorVistaModeloTransporte;
 import java.awt.Color;
+import modelo.ModeloMetodoModeloTransporte;
+import modelo.ModeloVistaMetodoGrafico;
 import util.BotonEstilo;
 
 /**
@@ -20,8 +23,11 @@ public class VistaModeloTransporte extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         
+        ModeloMetodoModeloTransporte modelo = new ModeloMetodoModeloTransporte(this);
         
+        ControladorVistaModeloTransporte controlador = new ControladorVistaModeloTransporte(modelo);
         
+        setControlador(controlador);
         
         BotonEstilo.aplicarHover(btnVolver, Color.getColor("Color base",new Color(255,193,7)), Color.getColor("Color hover",new Color(255,152,0)));
         BotonEstilo.aplicarHover(btnCostoMinimo, Color.getColor("Color base",new Color(255,193,7)), Color.getColor("Color base",new Color(255,152,0)));
@@ -44,6 +50,7 @@ public class VistaModeloTransporte extends javax.swing.JFrame {
         btnCostoMinimo = new javax.swing.JButton();
         btnEsquinaNoroeste = new javax.swing.JButton();
         btnAproxLineal = new javax.swing.JButton();
+        panelContenedor = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,17 +101,32 @@ public class VistaModeloTransporte extends javax.swing.JFrame {
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
+        panelContenedor.setBackground(new java.awt.Color(236, 239, 241));
+
+        javax.swing.GroupLayout panelContenedorLayout = new javax.swing.GroupLayout(panelContenedor);
+        panelContenedor.setLayout(panelContenedorLayout);
+        panelContenedorLayout.setHorizontalGroup(
+            panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        panelContenedorLayout.setVerticalGroup(
+            panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 586, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 592, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -163,5 +185,14 @@ public class VistaModeloTransporte extends javax.swing.JFrame {
     public javax.swing.JButton btnVolver;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    public javax.swing.JPanel panelContenedor;
     // End of variables declaration//GEN-END:variables
+
+    public void setControlador(ControladorVistaModeloTransporte controlador){
+        btnVolver.addActionListener(controlador);
+        btnAproxLineal.addActionListener(controlador);
+        btnCostoMinimo.addActionListener(controlador);
+        btnEsquinaNoroeste.addActionListener(controlador);
+    }
+
 }
