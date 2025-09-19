@@ -35,6 +35,7 @@ public class ControladorCostoMinimo implements ActionListener {
 
     DefaultTableModel modeloTabla = new DefaultTableModel();
     DefaultTableModel modelTablaDemanda = new DefaultTableModel();
+    DefaultTableModel modelTablaDatosNum = new DefaultTableModel();
     
     public void agregarOferta() {
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
@@ -101,8 +102,40 @@ public class ControladorCostoMinimo implements ActionListener {
     
     public void prepararDatosNumTabla(){
         
+        modelo.getVistaMetodoCostoMin().labelDatosNum.setVisible(true);
+        modelo.getVistaMetodoCostoMin().scrollContenedor.setVisible(true);
+        modelo.getVistaMetodoCostoMin().btnResolver.setVisible(true);
+        modelo.getVistaMetodoCostoMin().btnLimpiar.setVisible(true);
+        
         int numColumnas = Integer.parseInt(String.valueOf(modelo.getVistaMetodoCostoMin().spinnerDestino.getValue()));
         System.out.println(numColumnas);
+        int numFilas = Integer.parseInt(String.valueOf(modelo.getVistaMetodoCostoMin().spinnerSuministro.getValue()));
+        
+        String[] nombresColumnas = new String[numColumnas + 1];
+        nombresColumnas[0] = "";
+        
+        for(int i = 1; i <= numColumnas; i++){
+            nombresColumnas[i] = "D" + i;
+        }
+        
+        modelTablaDatosNum.setColumnIdentifiers(nombresColumnas);
+        
+        for(int i = 0; i < numFilas; i++){
+            Object[] fila = new Object[numColumnas + 1];
+            fila[0] = "Suministro " + (i + 1);
+            
+            modelTablaDatosNum.addRow(fila);
+        }
+        
+        
+        modelo.getVistaMetodoCostoMin().tblDatosNum.setModel(modelTablaDatosNum);
+        modelo.getVistaMetodoCostoMin().tblDatosNum.getColumnModel().getColumn(0).setCellEditor(null);
+        modelo.getVistaMetodoCostoMin().tblDatosNum.revalidate();
+        modelo.getVistaMetodoCostoMin().tblDatosNum.repaint();
+        
+        
+        
+        
         
     }
 
