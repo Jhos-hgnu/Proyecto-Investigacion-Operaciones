@@ -4,6 +4,7 @@
  */
 package implementacion;
 
+import java.util.Arrays;
 import modelo.ModeloCostoMinimo;
 
 /**
@@ -37,6 +38,17 @@ public class MetodoCostoMinimo {
         
         
         //Validar si el método se encuentra baleanceado
+        int totalOferta = Arrays.stream(oferta).sum();
+        int totalDemanda = Arrays.stream(demanda).sum();
+        
+        if (totalOferta == totalDemanda){
+            //Método balanceado
+            
+        } else if (totalOferta > totalDemanda){
+            //Agregar un destino ficticio
+        } else {
+            //Agregar un suministro ficticio
+        }
         
         
         
