@@ -328,7 +328,7 @@ public class VistaMetodoCostoMinimo extends javax.swing.JPanel {
     public javax.swing.JTable tblOferta;
     public javax.swing.JTextField txtDemanda;
     public javax.swing.JTextField txtOferta;
-    private javax.swing.JTextField txtResultado;
+    public javax.swing.JTextField txtResultado;
     // End of variables declaration//GEN-END:variables
 
     public void setControlador(ControladorCostoMinimo controlador){

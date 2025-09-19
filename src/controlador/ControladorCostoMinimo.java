@@ -1,5 +1,6 @@
 package controlador;
 
+import implementacion.MetodoCostoMinimo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -29,6 +30,8 @@ public class ControladorCostoMinimo implements ActionListener {
             agregarDemanda();
         } else if (e.getSource() == modelo.getVistaMetodoCostoMin().btnAgregarEncabezados){
             prepararDatosNumTabla();
+        } else if (e.getSource() == modelo.getVistaMetodoCostoMin().btnResolver) {
+            tomarDatos();
         }
 
     }
@@ -132,11 +135,19 @@ public class ControladorCostoMinimo implements ActionListener {
         modelo.getVistaMetodoCostoMin().tblDatosNum.getColumnModel().getColumn(0).setCellEditor(null);
         modelo.getVistaMetodoCostoMin().tblDatosNum.revalidate();
         modelo.getVistaMetodoCostoMin().tblDatosNum.repaint();
+                
+    }
+    
+    
+    public void tomarDatos(){
         
+        MetodoCostoMinimo metodo = new MetodoCostoMinimo(modelo.getVistaMetodoCostoMin().tblDatosNum, modelo.getVistaMetodoCostoMin().tblOferta, modelo.getVistaMetodoCostoMin().tblDemanda);
+        metodo.resolverCostoMinimo();
+        int resultado = metodo.getCostoTotal();
         
-        
-        
+        modelo.getVistaMetodoCostoMin().txtResultado.setText("El costo mínimo total es: " + resultado);
         
     }
+    
 
 }
