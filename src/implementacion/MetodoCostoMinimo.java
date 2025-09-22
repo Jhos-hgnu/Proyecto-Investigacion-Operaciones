@@ -23,9 +23,16 @@ public class MetodoCostoMinimo {
     public MetodoCostoMinimo(JTable tablaCostos, JTable tablaOferta, JTable tablaDemanda) {
         this.oferta = extraerVectorDesdeTabla(tablaOferta, "oferta");
         this.demanda = extraerVectorDesdeTabla(tablaDemanda, "demanda");
-        this.costos = extraerMatrizDesdeTabla(tablaCostos, oferta.length, demanda.length);
+//        this.costos = extraerMatrizDesdeTabla(tablaCostos, oferta.length, demanda.length);
+        this.costos = extraerMatrizDesdeTablaConEncabezado(tablaCostos);
         balancear();
         asignaciones = new int[oferta.length][demanda.length];
+
+        if (costos.length != oferta.length || costos[0].length != demanda.length) {
+            System.out.println("La matriz esta mal papu");
+
+        }
+
     }
 
     public int[] extraerVectorDesdeTabla(JTable tabla, String tipo) {
@@ -47,26 +54,55 @@ public class MetodoCostoMinimo {
         return vector;
     }
 
-    public int[][] extraerMatrizDesdeTabla(JTable tabla, int filas, int columnas) {
+//    public int[][] extraerMatrizDesdeTabla(JTable tabla, int filas, int columnas) {
+//
+//        int[][] matriz = new int[filas][columnas - 1];
+//        for (int i = 0; i < filas; i++) {
+//            for (int j = 1; j < columnas; j++) {
+//                Object valor = tabla.getValueAt(i, j);
+//                if (valor == null || valor.toString().trim().isEmpty()) {
+//                    throw new IllegalArgumentException("La tabla de costos");
+//                }
+//                try {
+//                    matriz[i][j - 1] = Integer.parseInt(valor.toString().trim());
+//                } catch (NumberFormatException e) {
+//                    throw new IllegalArgumentException("La tabla de costos contiene valores no numéricos");
+//                }
+//
+//            }
+//        }
+//        return matriz;
+//
+//    }
+    
+    //Probando metodo alternativo
+    public int[][] extraerMatrizDesdeTablaConEncabezado(JTable tabla) {
+    int filas = tabla.getRowCount();
+    int columnas = tabla.getColumnCount();
+    
+        System.out.println(filas);
+        System.out.println(columnas);
 
-        int[][] matriz = new int[filas][columnas];
-        for (int i = 0; i < filas; i++) {
-            for (int j = 0; j < columnas; j++) {
-                Object valor = tabla.getValueAt(i, j);
-                if (valor == null || valor.toString().trim().isEmpty()) {
-                    throw new IllegalArgumentException("La tabla de costos");
-                }
-                try {
-                    matriz[i][j] = Integer.parseInt(valor.toString().trim());
-                } catch (Exception e) {
-                    throw new IllegalArgumentException("La tabla de costos contiene valores no numéricos");
-                }
+    // Ignorar la primera columna (encabezado de fila)
+    int[][] matriz = new int[filas][columnas - 1];
 
+    for (int i = 0; i < filas; i++) {
+        for (int j = 1; j < columnas; j++) { // empieza en 1
+            Object valor = tabla.getValueAt(i, j);
+            if (valor == null || valor.toString().trim().isEmpty()) {
+                throw new IllegalArgumentException("La tabla de costos tiene celdas vacías en [" + (i + 1) + "," + j + "]");
+            }
+            try {
+                matriz[i][j - 1] = Integer.parseInt(valor.toString().trim());
+            } catch (NumberFormatException e) {
+                throw new IllegalArgumentException("La tabla de costos tiene valores no numéricos en [" + (i + 1) + "," + j + "]");
             }
         }
-        return matriz;
-
     }
+
+    return matriz;
+}
+    
 
     public void balancear() {
         //Validar si el método se encuentra baleanceado
@@ -75,6 +111,7 @@ public class MetodoCostoMinimo {
 
         if (totalOferta == totalDemanda) {
             balanceado = true;
+            System.out.println(balanceado);
             return;
         }
 
@@ -96,7 +133,8 @@ public class MetodoCostoMinimo {
             nuevaOferta[nuevaOferta.length - 1] = totalDemanda - totalOferta;
             int[][] nuevosCostos = new int[nuevaOferta.length][demanda.length];
             for (int i = 0; i < oferta.length; i++) {
-                System.arraycopy(costos[i], 0, nuevosCostos[i], 0, demanda.length);
+                System.arraycopy(costos[i], 0, nuevosCostos[i], 0, costos[i].length);
+                //System.arraycopy(costos[i], 0, nuevosCostos[i], 0, demanda.length);
             }
             for (int j = 0; j < demanda.length; j++) {
                 nuevosCostos[nuevaOferta.length - 1][j] = 0;
@@ -109,10 +147,16 @@ public class MetodoCostoMinimo {
 
     public void resolverCostoMinimo() {
 
-        boolean[] filaSatisfecha = new boolean[oferta.length];
-        boolean[] columnaSatisfecha = new boolean[demanda.length];
+        boolean[] filaSatisfecha = new boolean[demanda.length];
+        boolean[] columnaSatisfecha = new boolean[oferta.length];
+
+        System.out.println("Oferta: " + oferta.length);
+        System.out.println("Demanda: " + demanda.length);
+        System.out.println("Costos: " + costos.length + " x " + costos[0].length);
 
         while (!todoAsignado(filaSatisfecha, columnaSatisfecha)) {
+            System.out.println("Hola desde Resolver Costo Min");
+
             int[] pos = buscarMenorCosto(filaSatisfecha, columnaSatisfecha);
             int i = pos[0];
             int j = pos[1];
@@ -153,7 +197,7 @@ public class MetodoCostoMinimo {
             if (filas[i]) {
                 continue;
             }
-            for (int j = 0; j < costos[0].length; i++) {
+            for (int j = 0; j < costos[0].length; j++) {
                 if (columnas[j]) {
                     continue;
                 }
@@ -168,9 +212,7 @@ public class MetodoCostoMinimo {
         return pos;
     }
 
-    
-    
-     public int getCostoTotal() {
+    public int getCostoTotal() {
         int total = 0;
         for (int i = 0; i < asignaciones.length; i++) {
             for (int j = 0; j < asignaciones[0].length; j++) {

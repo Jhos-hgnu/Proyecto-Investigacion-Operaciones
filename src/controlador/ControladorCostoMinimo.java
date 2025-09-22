@@ -115,7 +115,7 @@ public class ControladorCostoMinimo implements ActionListener {
         int numFilas = Integer.parseInt(String.valueOf(modelo.getVistaMetodoCostoMin().spinnerSuministro.getValue()));
         
         String[] nombresColumnas = new String[numColumnas + 1];
-        nombresColumnas[0] = "";
+//        nombresColumnas[0] = "";
         
         for(int i = 1; i <= numColumnas; i++){
             nombresColumnas[i] = "D" + i;
@@ -140,7 +140,7 @@ public class ControladorCostoMinimo implements ActionListener {
     
     
     public void tomarDatos(){
-        
+        System.out.println("TOMAR DATOS METODO");
         MetodoCostoMinimo metodo = new MetodoCostoMinimo(modelo.getVistaMetodoCostoMin().tblDatosNum, modelo.getVistaMetodoCostoMin().tblOferta, modelo.getVistaMetodoCostoMin().tblDemanda);
         metodo.resolverCostoMinimo();
         int resultado = metodo.getCostoTotal();

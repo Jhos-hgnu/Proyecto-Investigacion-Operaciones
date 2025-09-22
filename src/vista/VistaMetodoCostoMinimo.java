@@ -337,6 +337,7 @@ public class VistaMetodoCostoMinimo extends javax.swing.JPanel {
         btnEliminarOferta.addActionListener(controlador);
         btnEliminarDemanda.addActionListener(controlador);
         btnAgregarEncabezados.addActionListener(controlador);
+        btnResolver.addActionListener(controlador);
     }
 
 
