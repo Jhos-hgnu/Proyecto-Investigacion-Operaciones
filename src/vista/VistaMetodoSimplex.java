@@ -15,12 +15,13 @@ public class VistaMetodoSimplex extends javax.swing.JPanel {
      */
     public VistaMetodoSimplex() {
         initComponents();
-        
+
         new controlador.ControladorMetodoSimplex(this);
-        
-       
-        
-        
+
+        buttonAgregar.setText("➕ Agregar Restriccion");
+        buttonResolver.setText(" Resolver");
+        buttonLimpiar.setText("Limpiar");
+
     }
 
     /**
@@ -35,9 +36,9 @@ public class VistaMetodoSimplex extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtFuncion = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtRestriccion = new javax.swing.JTextField();
         buttonAgregar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaRestriccion = new javax.swing.JTextArea();
@@ -45,7 +46,7 @@ public class VistaMetodoSimplex extends javax.swing.JPanel {
         buttonLimpiar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblSimplex = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtSolucion = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
@@ -95,8 +96,8 @@ public class VistaMetodoSimplex extends javax.swing.JPanel {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(buttonResolver)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField1)
-                                .addComponent(jTextField2)
+                                .addComponent(txtFuncion)
+                                .addComponent(txtRestriccion)
                                 .addComponent(jScrollPane1))
                             .addComponent(buttonLimpiar))))
                 .addContainerGap(21, Short.MAX_VALUE))
@@ -107,11 +108,11 @@ public class VistaMetodoSimplex extends javax.swing.JPanel {
                 .addGap(16, 16, 16)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtFuncion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtRestriccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(buttonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -127,7 +128,7 @@ public class VistaMetodoSimplex extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Tablas de iteraciones SimpleX");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblSimplex.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -138,7 +139,7 @@ public class VistaMetodoSimplex extends javax.swing.JPanel {
                 "", "", "", ""
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(tblSimplex);
 
         txtSolucion.setColumns(20);
         txtSolucion.setRows(5);
@@ -197,7 +198,24 @@ public class VistaMetodoSimplex extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    // === Getters para el controlador ===
+public javax.swing.JButton getButtonAgregar()   { return buttonAgregar; }
+public javax.swing.JButton getButtonResolver()  { return buttonResolver; }
+public javax.swing.JButton getButtonLimpiar()   { return buttonLimpiar; }
 
+public javax.swing.JTextField getTxtFuncion()     { return txtFuncion; }   // respeta el nombre en tu Navigator
+public javax.swing.JTextField getTxtRestriccion() { return txtRestriccion; }
+
+public javax.swing.JTextArea  getListaRestriccion(){ return listaRestriccion; }
+public javax.swing.JTable     getTblSimplex()      { return tblSimplex; }
+
+public javax.swing.JTextArea  getSolucion()        { return txtSolucion; }
+public javax.swing.JTabbedPane getTabIteraciones() { return tblIteraciones; }
+
+    
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAgregar;
     private javax.swing.JButton buttonLimpiar;
@@ -212,11 +230,11 @@ public class VistaMetodoSimplex extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextArea listaRestriccion;
     private javax.swing.JTabbedPane tblIteraciones;
+    private javax.swing.JTable tblSimplex;
+    private javax.swing.JTextField txtFuncion;
+    private javax.swing.JTextField txtRestriccion;
     private javax.swing.JTextArea txtSolucion;
     // End of variables declaration//GEN-END:variables
 }
