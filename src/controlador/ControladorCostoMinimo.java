@@ -26,12 +26,16 @@ public class ControladorCostoMinimo implements ActionListener {
 
         if (e.getSource() == modelo.getVistaMetodoCostoMin().btnAgregarOferta) {
             agregarOferta();
-        } else if (e.getSource() == modelo.getVistaMetodoCostoMin().btnAgregarDemanda){
+        } else if (e.getSource() == modelo.getVistaMetodoCostoMin().btnAgregarDemanda) {
             agregarDemanda();
-        } else if (e.getSource() == modelo.getVistaMetodoCostoMin().btnAgregarEncabezados){
+        } else if (e.getSource() == modelo.getVistaMetodoCostoMin().btnAgregarEncabezados) {
             prepararDatosNumTabla();
         } else if (e.getSource() == modelo.getVistaMetodoCostoMin().btnResolver) {
             tomarDatos();
+        } else if (e.getSource() == modelo.getVistaMetodoCostoMin().btnEliminarOferta) {
+            eliminarDatosOferta();
+        } else if (e.getSource() == modelo.getVistaMetodoCostoMin().btnEliminarDemanda) {
+            eliminarDatosDemanda();
         }
 
     }
@@ -39,7 +43,7 @@ public class ControladorCostoMinimo implements ActionListener {
     DefaultTableModel modeloTabla = new DefaultTableModel();
     DefaultTableModel modelTablaDemanda = new DefaultTableModel();
     DefaultTableModel modelTablaDatosNum = new DefaultTableModel();
-    
+
     public void agregarOferta() {
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
@@ -52,8 +56,7 @@ public class ControladorCostoMinimo implements ActionListener {
                 int cantidad = Integer.parseInt(texto);
                 modeloTabla.setColumnIdentifiers(new Object[]{"Oferta"});
                 modeloTabla.addRow(new Object[]{cantidad});
-                
-                
+
                 modelo.getVistaMetodoCostoMin().tblOferta.setModel(modeloTabla);
                 modelo.getVistaMetodoCostoMin().tblOferta.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
 
@@ -71,8 +74,8 @@ public class ControladorCostoMinimo implements ActionListener {
         }
 
     }
-    
-    public void agregarDemanda(){
+
+    public void agregarDemanda() {
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
 
@@ -84,15 +87,14 @@ public class ControladorCostoMinimo implements ActionListener {
                 int cantidad = Integer.parseInt(texto);
                 modelTablaDemanda.setColumnIdentifiers(new Object[]{"Demanda"});
                 modelTablaDemanda.addRow(new Object[]{cantidad});
-                
-                
+
                 modelo.getVistaMetodoCostoMin().tblDemanda.setModel(modelTablaDemanda);
                 modelo.getVistaMetodoCostoMin().tblDemanda.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
 
                 modelo.getVistaMetodoCostoMin().tblDemanda.revalidate();
                 modelo.getVistaMetodoCostoMin().tblDemanda.repaint();
                 modelo.getVistaMetodoCostoMin().txtDemanda.setText("");
-                
+
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Ingresa un número válido");
 
@@ -102,52 +104,78 @@ public class ControladorCostoMinimo implements ActionListener {
 
         }
     }
-    
-    public void prepararDatosNumTabla(){
-        
+
+    public void prepararDatosNumTabla() {
+
         modelo.getVistaMetodoCostoMin().labelDatosNum.setVisible(true);
         modelo.getVistaMetodoCostoMin().scrollContenedor.setVisible(true);
         modelo.getVistaMetodoCostoMin().btnResolver.setVisible(true);
         modelo.getVistaMetodoCostoMin().btnLimpiar.setVisible(true);
-        
+
         int numColumnas = Integer.parseInt(String.valueOf(modelo.getVistaMetodoCostoMin().spinnerDestino.getValue()));
         System.out.println(numColumnas);
         int numFilas = Integer.parseInt(String.valueOf(modelo.getVistaMetodoCostoMin().spinnerSuministro.getValue()));
-        
+
         String[] nombresColumnas = new String[numColumnas + 1];
 //        nombresColumnas[0] = "";
-        
-        for(int i = 1; i <= numColumnas; i++){
+
+        for (int i = 1; i <= numColumnas; i++) {
             nombresColumnas[i] = "D" + i;
         }
-        
+
         modelTablaDatosNum.setColumnIdentifiers(nombresColumnas);
-        
-        for(int i = 0; i < numFilas; i++){
+
+        for (int i = 0; i < numFilas; i++) {
             Object[] fila = new Object[numColumnas + 1];
             fila[0] = "Suministro " + (i + 1);
-            
+
             modelTablaDatosNum.addRow(fila);
         }
-        
-        
+
         modelo.getVistaMetodoCostoMin().tblDatosNum.setModel(modelTablaDatosNum);
         modelo.getVistaMetodoCostoMin().tblDatosNum.getColumnModel().getColumn(0).setCellEditor(null);
         modelo.getVistaMetodoCostoMin().tblDatosNum.revalidate();
         modelo.getVistaMetodoCostoMin().tblDatosNum.repaint();
-                
+
     }
-    
-    
-    public void tomarDatos(){
+
+    public void tomarDatos() {
         System.out.println("TOMAR DATOS METODO");
         MetodoCostoMinimo metodo = new MetodoCostoMinimo(modelo.getVistaMetodoCostoMin().tblDatosNum, modelo.getVistaMetodoCostoMin().tblOferta, modelo.getVistaMetodoCostoMin().tblDemanda);
         metodo.resolverCostoMinimo();
         int resultado = metodo.getCostoTotal();
-        
+
         modelo.getVistaMetodoCostoMin().txtResultado.setText("El costo mínimo total es: " + resultado);
-        
+
+    }
+
+    public void eliminarDatosOferta() {
+
+        int filaSeleccionada = modelo.getVistaMetodoCostoMin().tblOferta.getSelectedRow();
+
+        if (filaSeleccionada >= 0) {
+            DefaultTableModel modeloTabla = (DefaultTableModel) modelo.getVistaMetodoCostoMin().tblOferta.getModel();
+            modeloTabla.removeRow(filaSeleccionada);
+        } else {
+            JOptionPane.showInternalMessageDialog(null, "No hay ninguna fila seleccionada", "ERROR \"DATOS NO SELECCIONADOS\"", JOptionPane.WARNING_MESSAGE);
+
+        }
+
     }
     
+    public void eliminarDatosDemanda() {
+        
+        int filaSeleccionada = modelo.getVistaMetodoCostoMin().tblDemanda.getSelectedRow();
+
+        if (filaSeleccionada >= 0) {
+            DefaultTableModel modeloTabla = (DefaultTableModel) modelo.getVistaMetodoCostoMin().tblDemanda.getModel();
+            modeloTabla.removeRow(filaSeleccionada);
+        } else {
+            JOptionPane.showInternalMessageDialog(null, "No hay ninguna fila seleccionada", "ERROR \"DATOS NO SELECCIONADOS\"", JOptionPane.WARNING_MESSAGE);
+
+        }
+        
+        
+    }
 
 }
