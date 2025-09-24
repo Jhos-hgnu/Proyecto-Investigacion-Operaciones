@@ -147,8 +147,8 @@ public class MetodoCostoMinimo {
 
     public void resolverCostoMinimo() {
 
-        boolean[] filaSatisfecha = new boolean[demanda.length];
-        boolean[] columnaSatisfecha = new boolean[oferta.length];
+        boolean[] filaSatisfecha = new boolean[oferta.length];
+        boolean[] columnaSatisfecha = new boolean[demanda.length];
 
         System.out.println("Oferta: " + oferta.length);
         System.out.println("Demanda: " + demanda.length);

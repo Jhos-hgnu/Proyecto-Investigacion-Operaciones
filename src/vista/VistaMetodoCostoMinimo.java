@@ -19,24 +19,27 @@ public class VistaMetodoCostoMinimo extends javax.swing.JPanel {
      */
     public VistaMetodoCostoMinimo() {
         initComponents();
-        
+
         ModeloCostoMinimo modelo = new ModeloCostoMinimo(this);
-        
+
         ControladorCostoMinimo controlador = new ControladorCostoMinimo(modelo);
-        
+
         setControlador(controlador);
-        
+
         SpinnerNumberModel modeloDestino = new SpinnerNumberModel(1, 1, Integer.MAX_VALUE, 1);
         SpinnerNumberModel modeloSuministro = new SpinnerNumberModel(1, 1, Integer.MAX_VALUE, 1);
         spinnerDestino.setModel(modeloDestino);
         spinnerSuministro.setModel(modeloSuministro);
-        
+
         labelDatosNum.setVisible(false);
         scrollContenedor.setVisible(false);
         btnResolver.setVisible(false);
         btnLimpiar.setVisible(false);
-        
-        
+
+        if (tblDatosNum.isEditing()) {
+            tblDatosNum.getCellEditor().stopCellEditing();
+        }
+
     }
 
     /**
@@ -255,7 +258,7 @@ public class VistaMetodoCostoMinimo extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Resultado del Método");
 
-        txtResultado.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        txtResultado.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -265,12 +268,13 @@ public class VistaMetodoCostoMinimo extends javax.swing.JPanel {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(txtResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(79, Short.MAX_VALUE))
+                        .addGap(35, 35, 35)
+                        .addComponent(txtResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(34, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addGap(61, 61, 61))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,7 +283,7 @@ public class VistaMetodoCostoMinimo extends javax.swing.JPanel {
                 .addGap(111, 111, 111)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(txtResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -331,7 +335,7 @@ public class VistaMetodoCostoMinimo extends javax.swing.JPanel {
     public javax.swing.JTextField txtResultado;
     // End of variables declaration//GEN-END:variables
 
-    public void setControlador(ControladorCostoMinimo controlador){
+    public void setControlador(ControladorCostoMinimo controlador) {
         btnAgregarOferta.addActionListener(controlador);
         btnAgregarDemanda.addActionListener(controlador);
         btnEliminarOferta.addActionListener(controlador);
@@ -339,7 +343,5 @@ public class VistaMetodoCostoMinimo extends javax.swing.JPanel {
         btnAgregarEncabezados.addActionListener(controlador);
         btnResolver.addActionListener(controlador);
     }
-
-
 
 }
