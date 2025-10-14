@@ -111,7 +111,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Método Pendiente");
+        jButton3.setText("Modelo de Asignación");
 
         jButton1.setText("Problema a Resolver");
 
