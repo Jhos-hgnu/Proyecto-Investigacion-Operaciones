@@ -4,6 +4,9 @@
  */
 package vista;
 
+import controlador.ControladorMetodoAsignación;
+import modelo.ModeloMetodoAsignacion;
+
 /**
  *
  * @author jhosu
@@ -15,6 +18,13 @@ public class VistaModeloAsignacion extends javax.swing.JFrame {
      */
     public VistaModeloAsignacion() {
         initComponents();
+        setLocationRelativeTo(null);
+        
+        ModeloMetodoAsignacion modelo = new ModeloMetodoAsignacion(this);
+        
+        ControladorMetodoAsignación controlador = new ControladorMetodoAsignación(modelo);
+        
+        setControlador(controlador);
     }
 
     /**
@@ -216,4 +226,11 @@ public class VistaModeloAsignacion extends javax.swing.JFrame {
     public javax.swing.JSpinner spinnerSuministro;
     public javax.swing.JTable tblDatosNum;
     // End of variables declaration//GEN-END:variables
+
+    public void setControlador(ControladorMetodoAsignación controlador){
+        
+    }
+
+
+
 }
