@@ -75,6 +75,12 @@ public void marcarCeros(List<int[]> pares) {
         }
     }
 }
+
+public void marcarAsignacionConOriginal(int fila, int columna, int valorOriginal) {
+    if (fila >= 0 && fila < datos.length && columna >= 0 && columna < datos[0].length) {
+        datosConMarcas[fila][columna] = "[" + datos[fila][columna] + "(" + valorOriginal + ")]";
+    }
+}
     
     
 }
