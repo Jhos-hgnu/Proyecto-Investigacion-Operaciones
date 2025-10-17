@@ -33,7 +33,7 @@ public class MetodoEsquinaNoroeste {
         public int costoTotal = 0;
     }
 
-    // ==== MÉTODO PRINCIPAL ====
+    // MÉTODO PRINCIPAL 
     public static Resultado resolver(int[][] costos, int[] oferta, int[] demanda) {
         int m = oferta.length;
         int n = demanda.length;
