@@ -23,13 +23,13 @@ public class MetodoSimplex {
         int cols = n + m + 1;
         double[][] T = new double[rows][cols];
 
-        // Restricciones + holguras
+      
         for (int i = 0; i < m; i++) {
             System.arraycopy(A[i], 0, T[i + 1], 0, n);
             T[i + 1][n + i] = 1.0;
             T[i + 1][cols - 1] = b[i];
         }
-        // Fila objetivo: -c
+      
         for (int j = 0; j < n; j++) {
             T[0][j] = -c[j];
         }

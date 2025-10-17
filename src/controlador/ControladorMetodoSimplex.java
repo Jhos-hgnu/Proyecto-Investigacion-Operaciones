@@ -217,7 +217,7 @@ public class ControladorMetodoSimplex implements ActionListener{
         return fila;
     }
 
-    /** Crear tabla para cada iteración con colores y pivote resaltado */
+    /** colores para laas celdas */
     private JTable crearTablaIteracion(double[][] T, String[] headers, int[] basicas, int[] pivote) {
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Variables básicas");
