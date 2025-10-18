@@ -1,8 +1,8 @@
 package vista;
 
 import controlador.ControladorVistaMetodoGrafico;
+import javax.swing.table.DefaultTableModel;
 import modelo.ModeloVistaMetodoGrafico;
-
 
 public class VistaMetodoGrafico extends javax.swing.JPanel {
 
@@ -11,18 +11,23 @@ public class VistaMetodoGrafico extends javax.swing.JPanel {
      */
     public VistaMetodoGrafico() {
         initComponents();
-        
+
         ModeloVistaMetodoGrafico modelo = new ModeloVistaMetodoGrafico(this);
-        
+
         ControladorVistaMetodoGrafico controlador = new ControladorVistaMetodoGrafico(modelo);
-        
+
         setControlador(controlador);
-        
+
         //Configuración por defecto de la vista
         btnCalcular.setVisible(true);
         txtResultado.setVisible(false);
         lblResultado.setVisible(false);
-        
+
+    }
+
+    public void vaciarTabla() {
+        DefaultTableModel model = (DefaultTableModel) tablaRestricciones.getModel();
+        model.setRowCount(0);
     }
 
     /**
@@ -349,14 +354,13 @@ public class VistaMetodoGrafico extends javax.swing.JPanel {
     public javax.swing.JTextField txtX2Restriccion;
     // End of variables declaration//GEN-END:variables
 
-    public void setControlador(ControladorVistaMetodoGrafico controlador){
-        
+    public void setControlador(ControladorVistaMetodoGrafico controlador) {
+
         btnCalcular.addActionListener(controlador);
         btnAgregar.addActionListener(controlador);
         btnEliminarRestriccion.addActionListener(controlador);
         btnLimpiar.addActionListener(controlador);
-        
-        
+
     }
 
 }

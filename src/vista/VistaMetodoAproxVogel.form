@@ -21,7 +21,7 @@
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="135" max="32767" attributes="0"/>
+              <EmptySpace pref="151" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -60,15 +60,6 @@
                           <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jScrollPane1" min="-2" pref="321" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="jLabel1" min="-2" pref="48" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="Oferta" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
-                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="Demanda" min="-2" max="-2" attributes="0"/>
-                              </Group>
                               <Component id="Generar" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -78,6 +69,16 @@
                               <Component id="Limpiar" min="-2" max="-2" attributes="0"/>
                               <Component id="Resolver" min="-2" max="-2" attributes="0"/>
                           </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" pref="69" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="Oferta" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="Demanda" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="37" max="32767" attributes="0"/>
@@ -110,14 +111,14 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Oferta"/>
+            <Property name="text" type="java.lang.String" value="Columnas"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JSpinner" name="Oferta">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Demanda"/>
+            <Property name="text" type="java.lang.String" value="Filas"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JSpinner" name="Demanda">

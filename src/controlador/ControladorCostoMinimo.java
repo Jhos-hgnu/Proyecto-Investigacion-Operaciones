@@ -36,6 +36,8 @@ public class ControladorCostoMinimo implements ActionListener {
             eliminarDatosOferta();
         } else if (e.getSource() == modelo.getVistaMetodoCostoMin().btnEliminarDemanda) {
             eliminarDatosDemanda();
+        } else if (e.getSource() == modelo.getVistaMetodoCostoMin().btnLimpiar) {
+            limpiarDatos();
         }
 
     }
@@ -176,6 +178,11 @@ public class ControladorCostoMinimo implements ActionListener {
         }
         
         
+    }
+    
+    
+    public void limpiarDatos(){
+        modelo.getVistaMetodoCostoMin().vaciarTablas();
     }
 
 }

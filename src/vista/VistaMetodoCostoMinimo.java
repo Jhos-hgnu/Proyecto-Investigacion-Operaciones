@@ -5,7 +5,10 @@
 package vista;
 
 import controlador.ControladorCostoMinimo;
+import java.util.List;
+import javax.swing.SpinnerListModel;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.table.DefaultTableModel;
 import modelo.ModeloCostoMinimo;
 
 /**
@@ -39,6 +42,19 @@ public class VistaMetodoCostoMinimo extends javax.swing.JPanel {
         if (tblDatosNum.isEditing()) {
             tblDatosNum.getCellEditor().stopCellEditing();
         }
+
+    }
+
+    public void vaciarTablas() {
+        DefaultTableModel modelDemanda = (DefaultTableModel) tblDemanda.getModel();
+        DefaultTableModel modelOferta = (DefaultTableModel) tblOferta.getModel();
+        DefaultTableModel modelNum = (DefaultTableModel) tblDatosNum.getModel();
+        modelDemanda.setRowCount(0);
+        modelOferta.setRowCount(0);
+        modelNum.setRowCount(0);
+
+        spinnerDestino.setValue(1);
+        spinnerSuministro.setValue(1);
 
     }
 
@@ -341,6 +357,7 @@ public class VistaMetodoCostoMinimo extends javax.swing.JPanel {
         btnEliminarDemanda.addActionListener(controlador);
         btnAgregarEncabezados.addActionListener(controlador);
         btnResolver.addActionListener(controlador);
+        btnLimpiar.addActionListener(controlador);
     }
 
 }

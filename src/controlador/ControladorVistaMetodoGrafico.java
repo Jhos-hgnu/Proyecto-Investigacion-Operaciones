@@ -37,7 +37,7 @@ public class ControladorVistaMetodoGrafico implements ActionListener {
             calcularMetodoGrafico();
 
         } else if (e.getSource() == modelo.getVistaMetodoGrafico().btnLimpiar) {
-
+            limpiarDatos2();
         }
 
     }
@@ -171,10 +171,21 @@ public class ControladorVistaMetodoGrafico implements ActionListener {
         modelo.getVistaMetodoGrafico().txtX2Restriccion.setText("");
         modelo.getVistaMetodoGrafico().txtLadoDerecho.setText("");
         modelo.getVistaMetodoGrafico().comboBoxSimbolo.setSelectedIndex(0);
+        
+    }
+    
+    private void limpiarDatos2(){
+        modelo.getVistaMetodoGrafico().txtX1Restriccion.setText("");
+        modelo.getVistaMetodoGrafico().txtX2Restriccion.setText("");
+        modelo.getVistaMetodoGrafico().txtLadoDerecho.setText("");
+        modelo.getVistaMetodoGrafico().comboBoxSimbolo.setSelectedIndex(0);
         modelo.getVistaMetodoGrafico().panelGrafica.removeAll();
         modelo.getVistaMetodoGrafico().panelGrafica.revalidate();
         modelo.getVistaMetodoGrafico().panelGrafica.repaint();
-
+        modelo.getVistaMetodoGrafico().lblResultado.setText("");
+        modelo.getVistaMetodoGrafico().txtCoeficienteX1.setText("");
+        modelo.getVistaMetodoGrafico().txtCoeficienteX2.setText("");
+        modelo.getVistaMetodoGrafico().vaciarTabla();
     }
 
     //=========================
