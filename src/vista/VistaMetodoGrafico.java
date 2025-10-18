@@ -57,10 +57,11 @@ public class VistaMetodoGrafico extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         txtLadoDerecho = new javax.swing.JTextField();
         btnCalcular = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        scrollGrafica = new javax.swing.JScrollPane();
         panelGrafica = new javax.swing.JPanel();
         txtResultado = new javax.swing.JLabel();
         lblResultado = new javax.swing.JTextField();
+        btnLimpiar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(236, 239, 241));
 
@@ -248,7 +249,7 @@ public class VistaMetodoGrafico extends javax.swing.JPanel {
         btnCalcular.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCalcular.setText("Calcular");
 
-        jScrollPane1.setBackground(new java.awt.Color(204, 204, 204));
+        scrollGrafica.setBackground(new java.awt.Color(204, 204, 204));
 
         panelGrafica.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -256,14 +257,14 @@ public class VistaMetodoGrafico extends javax.swing.JPanel {
         panelGrafica.setLayout(panelGraficaLayout);
         panelGraficaLayout.setHorizontalGroup(
             panelGraficaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 729, Short.MAX_VALUE)
+            .addGap(0, 747, Short.MAX_VALUE)
         );
         panelGraficaLayout.setVerticalGroup(
             panelGraficaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 490, Short.MAX_VALUE)
         );
 
-        jScrollPane1.setViewportView(panelGrafica);
+        scrollGrafica.setViewportView(panelGrafica);
 
         txtResultado.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         txtResultado.setForeground(new java.awt.Color(0, 0, 0));
@@ -272,38 +273,43 @@ public class VistaMetodoGrafico extends javax.swing.JPanel {
         lblResultado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblResultado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
+        btnLimpiar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.setActionCommand("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCalcular, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
                         .addGap(71, 71, 71)
                         .addComponent(txtResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jScrollPane1)
-                        .addGap(31, 31, 31))))
+                        .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(scrollGrafica, javax.swing.GroupLayout.PREFERRED_SIZE, 753, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblResultado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
-                .addGap(29, 29, 29))
+                .addComponent(scrollGrafica, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -317,6 +323,7 @@ public class VistaMetodoGrafico extends javax.swing.JPanel {
     public javax.swing.JButton btnCalcular;
     public javax.swing.JButton btnEliminarRestriccion;
     public javax.swing.ButtonGroup btnGroupObjetivo;
+    public javax.swing.JButton btnLimpiar;
     public javax.swing.JComboBox<String> comboBoxSimbolo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -327,11 +334,11 @@ public class VistaMetodoGrafico extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTextField lblResultado;
     public javax.swing.JPanel panelGrafica;
     public javax.swing.JRadioButton radBtnMaximizar;
     private javax.swing.JRadioButton radBtnMinimizar;
+    public javax.swing.JScrollPane scrollGrafica;
     private javax.swing.JScrollPane scrollPTablaRestricciones;
     public javax.swing.JTable tablaRestricciones;
     public javax.swing.JTextField txtCoeficienteX1;
@@ -347,7 +354,7 @@ public class VistaMetodoGrafico extends javax.swing.JPanel {
         btnCalcular.addActionListener(controlador);
         btnAgregar.addActionListener(controlador);
         btnEliminarRestriccion.addActionListener(controlador);
-        
+        btnLimpiar.addActionListener(controlador);
         
         
     }

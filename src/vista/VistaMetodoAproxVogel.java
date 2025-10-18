@@ -4,18 +4,25 @@
  */
 package vista;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author jhosu
  */
-public class VistaMetodoAproxLineal extends javax.swing.JPanel {
+public class VistaMetodoAproxVogel extends javax.swing.JPanel {
 
     /**
      * Creates new form VistaMetodoAproxLineal
      */
-    public VistaMetodoAproxLineal() {
+    
+    public VistaMetodoAproxVogel() {
         initComponents();
     }
+
+    
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,17 +45,17 @@ public class VistaMetodoAproxLineal extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(451, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(866, Short.MAX_VALUE))
+                .addGap(421, 421, 421))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addContainerGap(560, Short.MAX_VALUE))
+                .addContainerGap(548, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -63,7 +70,9 @@ public class VistaMetodoAproxLineal extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
+     
+ 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

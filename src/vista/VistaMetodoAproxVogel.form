@@ -36,19 +36,19 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="451" max="32767" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="202" max="-2" attributes="0"/>
-                  <EmptySpace pref="866" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="421" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="560" max="32767" attributes="0"/>
+                  <EmptySpace pref="548" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

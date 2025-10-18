@@ -36,6 +36,8 @@ public class ControladorVistaMetodoGrafico implements ActionListener {
         } else if (e.getSource() == modelo.getVistaMetodoGrafico().btnCalcular) {
             calcularMetodoGrafico();
 
+        } else if (e.getSource() == modelo.getVistaMetodoGrafico().btnLimpiar) {
+
         }
 
     }
@@ -169,6 +171,10 @@ public class ControladorVistaMetodoGrafico implements ActionListener {
         modelo.getVistaMetodoGrafico().txtX2Restriccion.setText("");
         modelo.getVistaMetodoGrafico().txtLadoDerecho.setText("");
         modelo.getVistaMetodoGrafico().comboBoxSimbolo.setSelectedIndex(0);
+        modelo.getVistaMetodoGrafico().panelGrafica.removeAll();
+        modelo.getVistaMetodoGrafico().panelGrafica.revalidate();
+        modelo.getVistaMetodoGrafico().panelGrafica.repaint();
+
     }
 
     //=========================

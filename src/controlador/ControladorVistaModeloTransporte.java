@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import modelo.ModeloMetodoModeloTransporte;
-import vista.VistaMetodoAproxLineal;
+import vista.VistaMetodoAproxVogel;
 import vista.VistaMetodoCostoMinimo;
 import vista.VistaMetodoEsquinaNoroeste;
 import vista.VistaPrincipal;
@@ -35,7 +35,7 @@ public class ControladorVistaModeloTransporte implements ActionListener{
            vistaP.setVisible(true);
            modelo.getVistaMT().dispose();
         } else if(e.getSource() == modelo.getVistaMT().btnAproxLineal){
-            VistaMetodoAproxLineal vistaAproxLineal = new VistaMetodoAproxLineal();
+            VistaMetodoAproxVogel vistaAproxLineal = new VistaMetodoAproxVogel();
             mostrarPanel(vistaAproxLineal);
         } else if(e.getSource() == modelo.getVistaMT().btnCostoMinimo){
             VistaMetodoCostoMinimo vistaCostoMinimo = new VistaMetodoCostoMinimo();
