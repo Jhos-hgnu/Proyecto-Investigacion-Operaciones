@@ -6,6 +6,8 @@ package vista;
 
 import controlador.ControladorVistaModeloTransporte;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
 import modelo.ModeloMetodoModeloTransporte;
 import modelo.ModeloVistaMetodoGrafico;
 import util.BotonEstilo;
@@ -22,6 +24,20 @@ public class VistaModeloTransporte extends javax.swing.JFrame {
     public VistaModeloTransporte() {
         initComponents();
         setLocationRelativeTo(null);
+        
+        try {
+            Image icono = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/IconInvestigacionOperaciones1.2.png"));
+            if (icono != null) {
+                setIconImage(icono);
+            } else {
+                throw new NullPointerException("Icono no encontrado");
+            }
+
+        } catch (Exception e) {
+            
+        }
+        
+        
         
         ModeloMetodoModeloTransporte modelo = new ModeloMetodoModeloTransporte(this);
         

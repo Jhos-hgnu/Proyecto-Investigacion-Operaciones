@@ -44,6 +44,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
         
         BotonEstilo.aplicarHover(btnProgramacionLineal, Color.getColor("Color base",new Color(255,193,7)), Color.getColor("Color hover",new Color(255,152,0)));
         BotonEstilo.aplicarHover(btnMetodoTransporte, Color.getColor("Color base",new Color(255,193,7)), Color.getColor("Color hover",new Color(255,152,0)));
+        BotonEstilo.aplicarHover(btnModeloAsignacion, Color.getColor("Color base",new Color(255,193,7)), Color.getColor("Color hover",new Color(255,152,0)));
+        BotonEstilo.aplicarHover(btnProblemaFicticio, Color.getColor("Color base",new Color(255,193,7)), Color.getColor("Color hover",new Color(255,152,0)));
         //base 0,204,204  hover 0,255,204
        // btnProgramacionLineal;
        
@@ -66,7 +68,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         btnProgramacionLineal = new javax.swing.JButton();
         btnMetodoTransporte = new javax.swing.JButton();
         btnModeloAsignacion = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnProblemaFicticio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,9 +113,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnModeloAsignacion.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnModeloAsignacion.setText("Modelo de Asignación");
 
-        jButton1.setText("Problema a Resolver");
+        btnProblemaFicticio.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnProblemaFicticio.setText("Problema a Resolver");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -128,7 +132,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 .addGap(98, 98, 98)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnMetodoTransporte, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnProblemaFicticio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(275, 275, 275))
         );
         jPanel1Layout.setVerticalGroup(
@@ -142,7 +146,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 .addGap(60, 60, 60)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnModeloAsignacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
+                    .addComponent(btnProblemaFicticio, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
                 .addGap(110, 110, 110))
         );
 
@@ -202,8 +206,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnMetodoTransporte;
     public javax.swing.JButton btnModeloAsignacion;
+    public javax.swing.JButton btnProblemaFicticio;
     public javax.swing.JButton btnProgramacionLineal;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
@@ -214,7 +218,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         btnProgramacionLineal.addActionListener(controlador);
         btnMetodoTransporte.addActionListener(controlador);
         btnModeloAsignacion.addActionListener(controlador);
-        
+        btnProblemaFicticio.addActionListener(controlador);
     }
 
 

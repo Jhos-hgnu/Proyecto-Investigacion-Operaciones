@@ -5,10 +5,11 @@ import java.awt.event.ActionListener;
 import modelo.ModeloVistaPrincipal;
 import vista.VistaModeloAsignacion;
 import vista.VistaModeloTransporte;
+import vista.VistaProblemaFicticio;
 import vista.VistaProgramacionLineal;
 
-public class ControladorVistaPrincipal implements ActionListener{
-    
+public class ControladorVistaPrincipal implements ActionListener {
+
     ModeloVistaPrincipal modelo;
 
     public ControladorVistaPrincipal(ModeloVistaPrincipal modelo) {
@@ -17,27 +18,25 @@ public class ControladorVistaPrincipal implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
-        if(e.getSource() == modelo.getVistaPrincipal().btnProgramacionLineal){
+
+        if (e.getSource() == modelo.getVistaPrincipal().btnProgramacionLineal) {
             VistaProgramacionLineal vistaPLineal = new VistaProgramacionLineal();
             vistaPLineal.setVisible(true);
-            
             modelo.getVistaPrincipal().dispose();
-        } else if (e.getSource() == modelo.getVistaPrincipal().btnMetodoTransporte){
+        } else if (e.getSource() == modelo.getVistaPrincipal().btnMetodoTransporte) {
             VistaModeloTransporte vistaMTransporte = new VistaModeloTransporte();
             vistaMTransporte.setVisible(true);
-            
             modelo.getVistaPrincipal().dispose();
-        } else if (e.getSource() == modelo.getVistaPrincipal().btnModeloAsignacion){
+        } else if (e.getSource() == modelo.getVistaPrincipal().btnModeloAsignacion) {
             VistaModeloAsignacion vistaAsignacion = new VistaModeloAsignacion();
             vistaAsignacion.setVisible(true);
-            
+            modelo.getVistaPrincipal().dispose();
+        } else if (e.getSource() == modelo.getVistaPrincipal().btnProblemaFicticio) {
+            VistaProblemaFicticio vistaFicticio = new VistaProblemaFicticio();
+            vistaFicticio.setVisible(true);
             modelo.getVistaPrincipal().dispose();
         }
-        
-        
-        
+
     }
-    
-    
+
 }

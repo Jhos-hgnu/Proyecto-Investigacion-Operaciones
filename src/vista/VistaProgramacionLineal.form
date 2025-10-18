@@ -73,13 +73,13 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                      <Component id="btnVolver" min="-2" pref="96" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="177" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="btnVolver" min="-2" pref="99" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
                       <Component id="btnMetodoGrafico" min="-2" pref="247" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                       <Component id="btnMetodoSimpleX" min="-2" pref="234" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="243" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -88,7 +88,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnVolver" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
+                          <Component id="btnVolver" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
                           <Component id="btnMetodoGrafico" alignment="3" min="-2" pref="79" max="-2" attributes="0"/>
                           <Component id="btnMetodoSimpleX" alignment="3" min="-2" pref="78" max="-2" attributes="0"/>
                       </Group>

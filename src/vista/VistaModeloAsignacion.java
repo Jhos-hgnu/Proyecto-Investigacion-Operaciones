@@ -5,6 +5,8 @@
 package vista;
 
 import controlador.ControladorMetodoAsignación;
+import java.awt.Image;
+import java.awt.Toolkit;
 import modelo.ModeloMetodoAsignacion;
 
 /**
@@ -19,6 +21,21 @@ public class VistaModeloAsignacion extends javax.swing.JFrame {
     public VistaModeloAsignacion() {
         initComponents();
         setLocationRelativeTo(null);
+        
+        try {
+            Image icono = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/IconInvestigacionOperaciones1.2.png"));
+            if (icono != null) {
+                setIconImage(icono);
+            } else {
+                throw new NullPointerException("Icono no encontrado");
+            }
+
+        } catch (Exception e) {
+            
+        }
+        
+        
+        
         
         ModeloMetodoAsignacion modelo = new ModeloMetodoAsignacion(this);
         
